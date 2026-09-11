@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dropout Predictor</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <div class="header-content">
+
+            <div>
+                <h1>Student Dropout Predictor</h1>
+
+                <p>
+                    AI-Based Student Risk Assessment System
+                </p>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN CONTAINER
+    ====================================================== -->
+
+    <main class="container">
+
+
+        <!-- =================================================
+             INTRODUCTION
+        ================================================== -->
+
+        <section class="intro">
+
+            <h2>Student Risk Assessment</h2>
+
+            <p>
+                Enter the student's academic and personal information
+                to predict their academic outcome and dropout risk.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             FORM
+        ================================================== -->
+
+        <form id="predictionForm">
+
+
+            <!-- =================================================
+                 PERSONAL INFORMATION
+            ================================================== -->
+
+            <section class="card">
+
+                <h2>👤 Personal Information</h2>
+
+                <div class="form-grid">
+
+
+                    <!-- Marital Status -->
+
+                    <div class="form-group">
+
+                        <label for="marital_status">
+                            Marital Status
+                        </label>
+
+                        <select id="marital_status" required>
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="1">
+                                Single
+                            </option>
+
+                            <option value="2">
+                                Married
+                            </option>
+
+                            <option value="3">
+                                Widower
+                            </option>
+
+                            <option value="4">
+                                Divorced
+                            </option>
+
+                            <option value="5">
+                                Separated
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Gender -->
+
+                    <div class="form-group">
+
+                        <label for="gender">
+                            Gender
+                        </label>
+
+                        <select id="gender" required>
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="0">
+                                Female
+                            </option>
+
+                            <option value="1">
+                                Male
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Age -->
+
+                    <div class="form-group">
+
+                        <label for="age_at_enrollment">
+                            Age at Enrollment
+                        </label>
+
+                        <input type="number" id="age_at_enrollment" min="15" max="80" required>
+
+                    </div>
+
+
+                    <!-- Nationality -->
+
+                    <div class="form-group">
+
+                        <label for="nationality">
+                            Nationality Code
+                        </label>
+
+                        <input type="number" id="nationality" value="1" required>
+
+                    </div>
+
+
+                    <!-- International -->
+
+                    <div class="form-group">
+
+                        <label for="international">
+                            International Student
+                        </label>
+
+                        <select id="international" required>
+
+                            <option value="0">
+                                No
+                            </option>
+
+                            <option value="1">
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Displaced -->
+
+                    <div class="form-group">
+
+                        <label for="displaced">
+                            Displaced Student
+                        </label>
+
+                        <select id="displaced" required>
+
+                            <option value="0">
+                                No
+                            </option>
+
+                            <option value="1">
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ADMISSION INFORMATION
+            ================================================== -->
+
+            <section class="card">
+
+                <h2>🎓 Admission Information</h2>
+
+                <div class="form-grid">
+
+
+                    <!-- Application Mode -->
+
+                    <div class="form-group">
+
+                        <label for="application_mode">
+                            Application Mode Code
+                        </label>
+
+                        <input type="number" id="application_mode" value="17" required>
+
+                    </div>
+
+
+                    <!-- Application Order -->
+
+                    <div class="form-group">
+
+                        <label for="application_order">
+                            Application Order
+                        </label>
+
+                        <input type="number" id="application_order" min="0" required>
+
+                    </div>
+
+
+                    <!-- Course -->
+
+                    <div class="form-group">
+
+                        <label for="course">
+                            Course Code
+                        </label>
+
+                        <input type="number" id="course" value="171" required>
+
+                    </div>
+
+
+                    <!-- Previous Qualification -->
+
+                    <div class="form-group">
+
+                        <label for="previous_qualification">
+                            Previous Qualification Code
+                        </label>
+
+                        <input type="number" id="previous_qualification" value="1" required>
+
+                    </div>
+
+
+                    <!-- Previous Qualification Grade -->
+
+                    <div class="form-group">
+
+                        <label for="previous_qualification_grade">
+                            Previous Qualification Grade
+                        </label>
+
+                        <input type="number" id="previous_qualification_grade" step="0.01" value="122" required>
+
+                    </div>
+
+
+                    <!-- Admission Grade -->
+
+                    <div class="form-group">
+
+                        <label for="admission_grade">
+                            Admission Grade
+                        </label>
+
+                        <input type="number" id="admission_grade" step="0.01" value="127" required>
+
+                    </div>
+
+
+                    <!-- Daytime -->
+
+                    <div class="form-group">
+
+                        <label for="daytime_evening_attendance">
+                            Attendance Type
+                        </label>
+
+                        <select id="daytime_evening_attendance" required>
+
+                            <option value="1">
+                                Daytime
+                            </option>
+
+                            <option value="0">
+                                Evening
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FAMILY / FINANCIAL INFORMATION
+            ================================================== -->
+
+            <section class="card">
+
+                <h2>🏠 Family & Financial Information</h2>
+
+                <div class="form-grid">
+
+
+                    <!-- Mother's Qualification -->
+
+                    <div class="form-group">
+
+                        <label for="mothers_qualification">
+                            Mother's Qualification Code
+                        </label>
+
+                        <input type="number" id="mothers_qualification" value="19" required>
+
+                    </div>
+
+
+                    <!-- Father's Qualification -->
+
+                    <div class="form-group">
+
+                        <label for="fathers_qualification">
+                            Father's Qualification Code
+                        </label>
+
+                        <input type="number" id="fathers_qualification" value="12" required>
+
+                    </div>
+
+
+                    <!-- Mother's Occupation -->
+
+                    <div class="form-group">
+
+                        <label for="mothers_occupation">
+                            Mother's Occupation Code
+                        </label>
+
+                        <input type="number" id="mothers_occupation" value="5" required>
+
+                    </div>
+
+
+                    <!-- Father's Occupation -->
+
+                    <div class="form-group">
+
+                        <label for="fathers_occupation">
+                            Father's Occupation Code
+                        </label>
+
+                        <input type="number" id="fathers_occupation" value="9" required>
+
+                    </div>
+
+
+                    <!-- Debtor -->
+
+                    <div class="form-group">
+
+                        <label for="debtor">
+                            Debtor
+                        </label>
+
+                        <select id="debtor" required>
+
+                            <option value="0">
+                                No
+                            </option>
+
+                            <option value="1">
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Tuition -->
+
+                    <div class="form-group">
+
+                        <label for="tuition_fees_up_to_date">
+                            Tuition Fees Up to Date
+                        </label>
+
+                        <select id="tuition_fees_up_to_date" required>
+
+                            <option value="1">
+                                Yes
+                            </option>
+
+                            <option value="0">
+                                No
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Scholarship -->
+
+                    <div class="form-group">
+
+                        <label for="scholarship_holder">
+                            Scholarship Holder
+                        </label>
+
+                        <select id="scholarship_holder" required>
+
+                            <option value="0">
+                                No
+                            </option>
+
+                            <option value="1">
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Special Needs -->
+
+                    <div class="form-group">
+
+                        <label for="educational_special_needs">
+                            Educational Special Needs
+                        </label>
+
+                        <select id="educational_special_needs" required>
+
+                            <option value="0">
+                                No
+                            </option>
+
+                            <option value="1">
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SEMESTER 1
+            ================================================== -->
+
+            <section class="card">
+
+                <h2>📚 First Semester Performance</h2>
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="curricular_units_1st_sem_credited">
+                            Units Credited
+                        </label>
+
+                        <input type="number" id="curricular_units_1st_sem_credited" min="0" value="0" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="curricular_units_1st_sem_enrolled">
+                            Units Enrolled
+                        </label>
+
+                        <input type="number" id="curricular_units_1st_sem_enrolled" min="0" value="6" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="curricular_units_1st_sem_evaluations">
+                            Units Evaluated
+                        </label>
+
+                        <input type="number" id="curricular_units_1st_sem_evaluations" min="0" value="6" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="curricular_units_1st_sem_approved">
+                            Units Approved
+                        </label>
+
+                        <input type="number" id="curricular_units_1st_sem_approved" min="0" value="3" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="curricular_units_1st_sem_grade">
+                            Semester Grade
+                        </label>
+
+                        <input type="number" id="curricular_units_1st_sem_grade" step="0.01" value="11.5" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="curricular_units_1st_sem_without_evaluations">
+                            Without Evaluation
+                        </label>
+
+                        <input type="number" id="curricular_units_1st_sem_without_evaluations" min="0" value="0"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SEMESTER 2
+            ================================================== -->
+
+            <section class="card">
+
+                <h2>📖 Second Semester Performance</h2>
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="curricular_units_2nd_sem_credited">
+                            Units Credited
+                        </label>
+
+                        <input type="number" id="curricular_units_2nd_sem_credited" min="0" value="0" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="curricular_units_2nd_sem_enrolled">
+                            Units Enrolled
+                        </label>
+
+                        <input type="number" id="curricular_units_2nd_sem_enrolled" min="0" value="6" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="curricular_units_2nd_sem_evaluations">
+                            Units Evaluated
+                        </label>
+
+                        <input type="number" id="curricular_units_2nd_sem_evaluations" min="0" value="6" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="curricular_units_2nd_sem_approved">
+                            Units Approved
+                        </label>
+
+                        <input type="number" id="curricular_units_2nd_sem_approved" min="0" value="2" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="curricular_units_2nd_sem_grade">
+                            Semester Grade
+                        </label>
+
+                        <input type="number" id="curricular_units_2nd_sem_grade" step="0.01" value="10.5" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="curricular_units_2nd_sem_without_evaluations">
+                            Without Evaluation
+                        </label>
+
+                        <input type="number" id="curricular_units_2nd_sem_without_evaluations" min="0" value="0"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ECONOMIC INFORMATION
+            ================================================== -->
+
+            <section class="card">
+
+                <h2>📊 Economic Information</h2>
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="unemployment_rate">
+                            Unemployment Rate
+                        </label>
+
+                        <input type="number" id="unemployment_rate" step="0.01" value="11.1" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="inflation_rate">
+                            Inflation Rate
+                        </label>
+
+                        <input type="number" id="inflation_rate" step="0.01" value="1.4" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="gdp">
+                            GDP
+                        </label>
+
+                        <input type="number" id="gdp" step="0.01" value="2.0" required>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 BUTTON
+            ================================================== -->
+
+            <div class="button-container">
+
+                <button type="submit" id="predictButton">
+                    🔮 Predict Student Risk
+                </button>
+
+            </div>
+
+        </form>
+
+
+
+        <!-- =================================================
+             LOADING
+        ================================================== -->
+
+        <div id="loading" class="loading hidden">
+
+            <div class="spinner"></div>
+
+            <p>
+                Analyzing student data...
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ERROR
+        ================================================== -->
+
+        <div id="error" class="error hidden">
+
+            <h3>⚠️ Prediction Error</h3>
+
+            <p id="errorMessage"></p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RESULT
+        ================================================== -->
+
+        <section id="result" class="result hidden">
+
+            <h2>📈 Prediction Result</h2>
+
+
+            <div class="result-grid">
+
+
+                <!-- Prediction -->
+
+                <div class="result-card">
+
+                    <span>
+                        Predicted Outcome
+                    </span>
+
+                    <strong id="prediction">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <!-- Probability -->
+
+                <div class="result-card">
+
+                    <span>
+                        Dropout Probability
+                    </span>
+
+                    <strong id="dropoutProbability">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <!-- Risk -->
+
+                <div class="result-card risk-card" id="riskCard">
+
+                    <span>
+                        Risk Level
+                    </span>
+
+                    <strong id="riskLevel">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Probability Details -->
+
+            <div class="probabilities">
+
+                <h3>
+                    Outcome Probabilities
+                </h3>
+
+                <div id="probabilityList"></div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <p>
+            Student Dropout Predictor |
+            AI & Machine Learning Project
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
